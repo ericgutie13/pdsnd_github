@@ -215,12 +215,15 @@ def user_stats(df,city):
 def print_raw(df):
     """Displays raw data from selected bike share dataset"""
     
+    # Prompt user to see if they would like to view the raw data
     user_input = input('\nWould you like to view the raw data? Enter yes or no. ').lower()
     print('\n')
     if user_input == 'yes':
         print(df.head())
     
     count = 5
+    # After printing the first 5 rows of data, prompt the user if they would like to see more data
+    # Continue cycling through the data until the user stops or the data ends
     while True:
         user_input = input('\nWould you like to view more raw data? Enter yes or no. ').lower()
         if count < len(df):                
@@ -241,15 +244,18 @@ def print_raw(df):
 
 def main():
     while True:
+        # Call get_filters and load_data functions to load in data from csv files
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
+        # Call the remainder of the functions in this tool to display all of the data the user called for
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df,city)
         print_raw(df)
 
+        # Prompt the user to see if they would like to restart the program
         restart = input('\nWould you like to restart? Enter yes or no. ')
         if restart.lower() != 'yes':
             print('\n')
