@@ -16,5 +16,5 @@ In this project, you will use data provided by [Motivate](https://motivateco.com
 - washington.csv
 
 ### Credits
-Udacity!
+[Udacity!](https://www.udacity.com/)
 
