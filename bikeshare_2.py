@@ -244,15 +244,18 @@ def print_raw(df):
 
 def main():
     while True:
+        # Call get_filters and load_data functions to load in data from csv files
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
+        # Call the remainder of the functions in this tool to display all of the data the user called for
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df,city)
         print_raw(df)
 
+        # Prompt the user to see if they would like to restart the program
         restart = input('\nWould you like to restart? Enter yes or no. ')
         if restart.lower() != 'yes':
             print('\n')
